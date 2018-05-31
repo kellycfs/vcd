@@ -1,3 +1,4 @@
+import { LoginService } from './../services/login.service';
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   ],
   declarations: [LoginFormComponent, LoginComponent],
   exports: [LoginFormComponent, LoginComponent],
-  providers: [AngularFireAuth]
+  providers: [AngularFireAuth, LoginService]
 
 })
 export class LoginModule { }

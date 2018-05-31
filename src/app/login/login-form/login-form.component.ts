@@ -2,6 +2,7 @@ import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
@@ -19,10 +20,14 @@ export class LoginFormComponent implements OnInit {
     if (!f.valid) {
       return;
     }
-    this.afAuth.auth.signInWithEmailAndPassword(f.controls.email.value, f.controls.senha.value)
-    .then(ok => this.router.navigate(['/cadastro']));
+    this.loginService.login(f.controls.email.value, f.controls.senha.value)
+    .then(ok => this.getUsuario());
 
     f.controls.email.setValue('');
     f.controls.senha.setValue('');
+  }
+
+  getUsuario() {
+
   }
 }

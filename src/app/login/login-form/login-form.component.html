@@ -1,9 +1,46 @@
-<h1>Login</h1>
+<script>
+  $('#loginform').click(function () {
+    $('.login').fadeToggle('slow');
+    $(this).toggleClass('green');
+  });
 
-<form #f="ngForm" (submit)="form_login(f)">
-  <input type="text" required ngModel name="email" placeholder="E-mail"/>
-  <br/>
-  <input type="text" required ngModel name="senha" placeholder="Senha"/>
-  <br />
-  <button type="submit" > Entrar </button>
-</form>
+
+</script>
+
+<details class="details-expanded details-reset js-dropdown-details d-flex pl-2 flex-items-center">
+  <summary class="HeaderNavlink name mt-1" id="loginform" aria-label="Login">
+    <img alt="@kellycfs" class="avatar float-left mr-1" src="https://avatars2.githubusercontent.com/u/10854587?s=40&amp;v=4"
+      height="20" width="20">
+    <span class="dropdown-caret"></span>
+  </summary>
+
+  <div class="login">
+    <h3>Login</h3>
+
+    <form #f="ngForm" (submit)="form_login(f)">
+      <input type="text" required ngModel name="email" placeholder="E-mail" />
+      <br/>
+      <input type="text" required ngModel name="senha" placeholder="Senha" />
+      <br />
+      <button type="submit"> Entrar </button>
+    </form>
+  </div>
+  <div class="logado" style="display:none">
+    <ul class="dropdown-menu dropdown-menu-sw">
+      <li class="dropdown-header header-nav-current-user css-truncate">
+        Signed in as
+        <strong class="css-truncate-target">kellycfs</strong>
+      </li>
+
+      <li class="dropdown-divider"></li>
+
+      <li>
+        <a class="dropdown-item" href="/kellycfs" data-ga-click="Header, go to profile, text:your profile">
+          Your profile
+        </a>
+      </li>
+
+
+    </ul>
+  </div>
+</details>

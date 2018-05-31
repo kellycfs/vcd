@@ -1,3 +1,7 @@
+import { AngularFireDatabase } from 'angularfire2/database';
+import { ComponentsModule } from './components/components.module';
+import { PagesModule } from './pages/pages.module';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AppRoutingModule } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +16,7 @@ import { LoginModule } from './login/login.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,9 +26,12 @@ import { LoginModule } from './login/login.module';
     FormsModule,
     LoginModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(FirebaseConfig)
+    AngularFireModule.initializeApp(FirebaseConfig),
+    PagesModule,
+    ComponentsModule
   ],
-  providers: [],
+  exports: [PagesModule, ComponentsModule],
+  providers: [AngularFireModule, AngularFireDatabase, AngularFireAuth, PagesModule, ComponentsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
