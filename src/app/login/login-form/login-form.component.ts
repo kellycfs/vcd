@@ -28,6 +28,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   getUsuario() {
-
+    console.log("getusuarioooo");
   }
 }

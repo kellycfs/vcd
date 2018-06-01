@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
 
   constructor(private router: Router) {
 
@@ -16,5 +15,21 @@ export class AppComponent {
   goEventos() {
     this.router.navigate(['/eventos']);
   }
+
+  goHome() {
+    this.router.navigate(['/home']);
+  }
+
+  goProfessores() {
+    this.router.navigate(['/professores']);
+  }
+
+  goEscolas() {
+    this.router.navigate(['/escolas']);
+  }
+  goContato() {
+    this.router.navigate(['/contato']);
+  }
+
 
 }

@@ -4,39 +4,60 @@
 <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"></a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
     </div>
     <div class="collapse navbar-collapse" id="custom-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#totop">Home</a></li>
-        <li><a class="section-scroll" (click)="goEventos()" href="#eventos">Eventos</a></li>
-        <li><a class="section-scroll" href="#professores">Professores</a></li>
-        <li><a class="section-scroll" href="#escolas">Escolas</a></li>
-        <li><a class="section-scroll" href="#news">Blog</a></li>
-        <li><a class="section-scroll" href="#contact">Contato</a></li>
-        <li> <app-login-form></app-login-form></li>
+        <li>
+          <a href="#totop" (click)="goHome()">Home</a>
+        </li>
+        <li>
+          <a class="section-scroll" (click)="goEventos()" href="#body">Eventos</a>
+        </li>
+        <li>
+          <a class="section-scroll" (click)="goProfessores()" href="#body">Professores</a>
+        </li>
+        <li>
+          <a class="section-scroll" (click)="goEscolas()" href="#body">Escolas</a>
+        </li>
+        <li>
+          <a class="section-scroll" href="#body">Blog</a>
+        </li>
+        <li>
+          <a class="section-scroll" (click)="goContato()" href="#body">Contato</a>
+        </li>
+        <li>
+          <app-login-form></app-login-form>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-<section class="home-section home-full-height bg-dark bg-gradient" id="home" data-background="assets/images/section-10.jpg">
+<section class="home-section home-full-height bg-dark bg-gradient" id="home" data-background="assets/7893.jpg">
   <div class="titan-caption">
     <div class="caption-content">
       <div class="font-alt mb-30 titan-title-size-4">Vem Cá Dançar!</div>
-      <div class="font-alt mb-40 titan-title-size-1">Encontre eventos, professores ou escolas de dança...</div><a class="section-scroll btn btn-border-w btn-round" href="#">Saiba Mais</a>
+      <div class="font-alt mb-40 titan-title-size-1">Encontre eventos, professores ou escolas de dança...</div>
     </div>
   </div>
 </section>
-<div class="main">
- 
- <router-outlet></router-outlet>
- <hr class="divider-w">
+<div class="main" id="body">
+  <router-outlet></router-outlet>
+  <hr class="divider-w">
   <app-proximoseventos></app-proximoseventos>
- <hr class="divider-w">
- <app-videos></app-videos>
- 
+  <hr class="divider-w">
+  <app-videos></app-videos>
   <hr class="divider-d">
   <app-rodape></app-rodape>
 </div>
-<div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-
+<div class="scroll-up">
+  <a href="#totop">
+    <i class="fa fa-angle-double-up"></i>
+  </a>
+</div>

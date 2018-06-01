@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { EscolasComponent } from './pages/escolas/escolas.component';
 import { EventosComponent } from './pages/eventos/eventos.component';
@@ -10,7 +11,7 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ProfessoresComponent } from './pages/professores/professores.component';
 
 const APP_ROUTES: Routes = [
-    { path: '', component: AppComponent },
+    { path: '', component: HomeComponent },
 { path: 'login', component: LoginComponent },
 { path: 'escolas', component: EscolasComponent },
 { path: 'professores', component: ProfessoresComponent },
