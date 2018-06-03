@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   goHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
   }
 
   goProfessores() {

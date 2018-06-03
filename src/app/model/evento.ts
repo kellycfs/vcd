@@ -1,6 +1,11 @@
+//import { TIPOEVENTO } from './evento';
+
+
 import { Ritmo } from './ritmo';
 import { Local } from './local';
 import { Professor } from './professor';
+
+const TIPOEVENTO = ['CONGRESSO', 'AULA', 'BAILE', 'WORKSHOP', 'PRATICA'];
 export class Evento {
 
   done: boolean;
@@ -11,14 +16,16 @@ export class Evento {
   nome = '';
   descricao = '';
 
- // tipoEvento: TipoEvento;
+  //tipoEvento: TIPOEVENTO;
   local: Local;
   dataInicio: Date;
-  horaInicio;
+  horaInicio = '';
 
   link: String = '';
 
   ritmos: Ritmo[];
   professores: Professor[];
+
+  banner: String = '';
 
 }

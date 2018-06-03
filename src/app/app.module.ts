@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
@@ -14,9 +15,6 @@ import { AngularFireModule } from 'angularfire2/index';
 import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -28,9 +26,10 @@ import { LoginModule } from './login/login.module';
     AppRoutingModule,
     AngularFireModule.initializeApp(FirebaseConfig),
     PagesModule,
-    ComponentsModule
+    ComponentsModule,
+    NgbModule.forRoot()
   ],
-  exports: [PagesModule, ComponentsModule],
+  exports: [PagesModule, ComponentsModule, NgbModule],
   providers: [AngularFireModule, AngularFireDatabase, AngularFireAuth, PagesModule, ComponentsModule],
   bootstrap: [AppComponent]
 })

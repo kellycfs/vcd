@@ -1,6 +1,6 @@
 import { LoginService } from './../services/login.service';
 import { EventoService } from './../services/evento.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastrarEventoComponent } from './cadastrar-evento/cadastrar-evento.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,15 +9,20 @@ import { ComponentsModule } from '../components/components.module';
 import { EventosComponent } from './eventos/eventos.component';
 import { ProfessoresComponent } from './professores/professores.component';
 import { EscolasComponent } from './escolas/escolas.component';
+import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     ComponentsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
-  declarations: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent],
-  exports: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent],
+  declarations: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent,
+    CadastroEventoComponent],
+  exports: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent, CadastroEventoComponent],
   providers: [EventoService, LoginService]
 })
 export class PagesModule { }
