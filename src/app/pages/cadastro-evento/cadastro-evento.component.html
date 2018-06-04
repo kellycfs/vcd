@@ -1,13 +1,13 @@
 <form [formGroup]="formEvento" novalidate (ngSubmit)="save(formEvento)">
   <!-- we will place our fields here -->
 
-  <div _ngcontent-c12="" class="panel panel-default">
-    <div _ngcontent-c12="" class="panel-heading">EVENTO</div>
-    <div _ngcontent-c12="" class="panel-body">
+  <div  class="panel panel-default">
+    <div  class="panel-heading">EVENTO</div>
+    <div  class="panel-body">
 
-      <div _ngcontent-c12="" class="form-group">
-        <label _ngcontent-c12="" class="col-md-3 control-label" for="data">Nome *</label>
-        <div _ngcontent-c12="" class="col-md-9">
+      <div  class="form-group">
+        <label  class="col-md-3 control-label" for="data">Nome *</label>
+        <div  class="col-md-9">
           <input type="text" class="form-control ng-untouched ng-pristine ng-invalid" formControlName="nome">
           <!--display error message if name is not valid-->
           <small *ngIf="!formEvento.controls.nome.valid" class="text-danger">
@@ -17,9 +17,9 @@
       </div>
 
 
-      <div _ngcontent-c12="" class="form-group">
-        <label _ngcontent-c12="" class="col-md-3 control-label" for="data">Descrição</label>
-        <div _ngcontent-c12="" class="col-md-9">
+      <div  class="form-group">
+        <label  class="col-md-3 control-label" for="data">Descrição</label>
+        <div  class="col-md-9">
           <input type="text" class="form-control ng-untouched ng-pristine ng-invalid" formControlName="descricao">
           <!--display error message if name is not valid-->
           <small *ngIf="!formEvento.controls.descricao.valid" class="text-danger">
@@ -29,191 +29,200 @@
       </div>
 
 
-      <div _ngcontent-c12="" class="form-group">
-        <label _ngcontent-c12="" class="col-md-3 control-label" for="data">Data *</label>
-        <div _ngcontent-c12="" class="col-md-3 date">
+      <div  class="form-group">
+          <label  class="col-md-3 control-label" for="data">Data *</label>
+          <div  class="col-md-3 date">
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="dataInicio" ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                  <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+                </button>
+              </div>
+            </div>
+          </div>
+        <label  class="col-md-4 control-label" for="hora">Horário local *</label>
+        <div  class="col-md-2 time">
 
-          <input type="text" class="form-control ng-untouched ng-pristine ng-invalid" placeholder="Datepicker" bsDatepicker formControlName="dataInicio"
-          />
-        </div>
-        <label _ngcontent-c12="" class="col-md-4 control-label" for="hora">Horário local *</label>
-        <div _ngcontent-c12="" class="col-md-2 time">
-
-          <input _ngcontent-c12="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="horaInicio" id="hora"
-            type="tel">
+          <input  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="horaInicio" id="hora">
 
         </div>
       </div>
 
-      <div _ngcontent-c12="" class="form-group">
-        <label _ngcontent-c12="" class="col-md-3 control-label" for="data">Data *</label>
-        <div _ngcontent-c12="" class="col-md-9 date">
-          <div class="input-group">
-            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-                <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
-              </button>
-            </div>
-          </div>
-        </div>
-        </div>
 
-        <hr _ngcontent-c12="">
-        <div _ngcontent-c12="" class="form-group suggestion-typeahead">
-          <label _ngcontent-c12="" class="col-md-3 control-label" for="local">Local *</label>
-          <div _ngcontent-c12="" class="col-md-9">
-            <input _ngcontent-c12="" autocomplete="off" class="form-control ng-pristine ng-invalid ng-touched" formcontrolname="local.nome"
+      <fieldset formGroupName="local">
+        <hr >
+        <div  class="form-group suggestion-typeahead">
+          <label  class="col-md-3 control-label" for="local">Local *</label>
+          <div  class="col-md-9">
+            <input  autocomplete="off" class="form-control ng-pristine ng-invalid ng-touched" formcontrolname="nome"
               id="establishment" placeholder="Ex. Arena Castelão" type="text" typeaheadminlength="3" typeaheadoptionfield="name"
               typeaheadoptionslimit="7" typeaheadwaitms="1000">
             <!---->
             <!---->
           </div>
         </div>
-        <div _ngcontent-c12="" class="form-group">
-          <label _ngcontent-c12="" class="col-md-3 control-label" for="cep">CEP</label>
-          <div _ngcontent-c12="" class="col-md-9">
-            <input _ngcontent-c12="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="local.endereco.cep" id="cep"
-              type="tel">
-          </div>
-        </div>
-        <div _ngcontent-c12="" class="establishment-detail">
-          <div _ngcontent-c12="" class="form-group">
-            <label _ngcontent-c12="" class="col-md-3 control-label" for="uf">Estado *</label>
-            <div _ngcontent-c12="" class="col-md-3">
-              <select _ngcontent-c12="" class="col-md-3 form-control ng-untouched ng-pristine ng-invalid" formcontrolname="local.endereco.estado"
-                id="uf">
-                <option _ngcontent-c12="" value="" disabled="">UF</option>
-                <!---->
-                <option _ngcontent-c12="" value="1: AC">AC</option>
-                <option _ngcontent-c12="" value="2: AL">AL</option>
-                <option _ngcontent-c12="" value="3: AM">AM</option>
-                <option _ngcontent-c12="" value="4: AP">AP</option>
-                <option _ngcontent-c12="" value="5: BA">BA</option>
-                <option _ngcontent-c12="" value="6: CE">CE</option>
-                <option _ngcontent-c12="" value="7: DF">DF</option>
-                <option _ngcontent-c12="" value="8: ES">ES</option>
-                <option _ngcontent-c12="" value="9: GO">GO</option>
-                <option _ngcontent-c12="" value="10: MA">MA</option>
-                <option _ngcontent-c12="" value="11: MG">MG</option>
-                <option _ngcontent-c12="" value="12: MS">MS</option>
-                <option _ngcontent-c12="" value="13: MT">MT</option>
-                <option _ngcontent-c12="" value="14: PA">PA</option>
-                <option _ngcontent-c12="" value="15: PB">PB</option>
-                <option _ngcontent-c12="" value="16: PE">PE</option>
-                <option _ngcontent-c12="" value="17: PI">PI</option>
-                <option _ngcontent-c12="" value="18: PR">PR</option>
-                <option _ngcontent-c12="" value="19: RJ">RJ</option>
-                <option _ngcontent-c12="" value="20: RN">RN</option>
-                <option _ngcontent-c12="" value="21: RO">RO</option>
-                <option _ngcontent-c12="" value="22: RR">RR</option>
-                <option _ngcontent-c12="" value="23: RS">RS</option>
-                <option _ngcontent-c12="" value="24: SC">SC</option>
-                <option _ngcontent-c12="" value="25: SE">SE</option>
-                <option _ngcontent-c12="" value="26: SP">SP</option>
-                <option _ngcontent-c12="" value="27: TO">TO</option>
-              </select>
-            </div>
-            <label _ngcontent-c12="" class="col-md-2 control-label" for="cidade">Cidade *</label>
-            <div _ngcontent-c12="" class="col-md-4" name="cidade">
-              <select _ngcontent-c12="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="local.endereco.cidade"
-                id="cidade">
-                <option _ngcontent-c12="" value="" disabled="">Selecione a cidade...</option>
-                <!---->
-              </select>
+
+        <fieldset formGroupName="endereco">
+
+          <div  class="form-group">
+            <label  class="col-md-3 control-label" for="cep">CEP</label>
+            <div  class="col-md-9">
+              <input  class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="cep" id="cep" type="tel">
             </div>
           </div>
-          <div _ngcontent-c12="" class="form-group">
-            <label _ngcontent-c12="" class="col-md-3 control-label" for="bairro">Bairro *</label>
-            <div _ngcontent-c12="" class="col-md-9">
-              <input _ngcontent-c12="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="local.endereco.bairro"
-                id="bairro" placeholder="Bairro ou distrito do local" type="text">
+          <div  class="establishment-detail">
+            <div  class="form-group">
+              <label  class="col-md-3 control-label" for="uf">Estado *</label>
+              <div  class="col-md-3">
+                <select  class="col-md-3 form-control ng-untouched ng-pristine ng-invalid" formcontrolname="estado" id="uf">
+                  <option  value="" disabled="">UF</option>
+                  <!---->
+                  <option  value="1: AC">AC</option>
+                  <option  value="2: AL">AL</option>
+                  <option  value="3: AM">AM</option>
+                  <option  value="4: AP">AP</option>
+                  <option  value="5: BA">BA</option>
+                  <option  value="6: CE">CE</option>
+                  <option  value="7: DF">DF</option>
+                  <option  value="8: ES">ES</option>
+                  <option  value="9: GO">GO</option>
+                  <option  value="10: MA">MA</option>
+                  <option  value="11: MG">MG</option>
+                  <option  value="12: MS">MS</option>
+                  <option  value="13: MT">MT</option>
+                  <option  value="14: PA">PA</option>
+                  <option  value="15: PB">PB</option>
+                  <option  value="16: PE">PE</option>
+                  <option  value="17: PI">PI</option>
+                  <option  value="18: PR">PR</option>
+                  <option  value="19: RJ">RJ</option>
+                  <option  value="20: RN">RN</option>
+                  <option  value="21: RO">RO</option>
+                  <option  value="22: RR">RR</option>
+                  <option  value="23: RS">RS</option>
+                  <option  value="24: SC">SC</option>
+                  <option  value="25: SE">SE</option>
+                  <option  value="26: SP">SP</option>
+                  <option  value="27: TO">TO</option>
+                </select>
+              </div>
+              <label  class="col-md-2 control-label" for="cidade">Cidade *</label>
+              <div  class="col-md-4" name="cidade">
+                <select  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="cidade" id="cidade">
+                  <option  value="" disabled="">Selecione a cidade...</option>
+                  <!---->
+                </select>
+              </div>
             </div>
-          </div>
-          <div _ngcontent-c12="" class="form-group">
-            <label _ngcontent-c12="" class="col-md-3 control-label" for="logradouro">Logradouro *</label>
-            <div _ngcontent-c12="" class="col-md-9">
-              <input _ngcontent-c12="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="local.endereco.logradouro"
-                id="logradoouro" placeholder="Avenida ou rua do local" type="text">
+            <div  class="form-group">
+              <label  class="col-md-3 control-label" for="bairro">Bairro *</label>
+              <div  class="col-md-9">
+                <input  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="bairro" id="bairro" placeholder="Bairro ou distrito do local"
+                  type="text">
+              </div>
             </div>
-          </div>
-          <div _ngcontent-c12="" class="form-group">
-            <label _ngcontent-c12="" class="col-md-3 control-label" for="endereco_numero">Complemento</label>
-            <div _ngcontent-c12="" class="col-md-9">
-              <input _ngcontent-c12="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="local.endereco.complemento"
-                id="endereco_numero" placeholder="Número" type="tel">
+            <div  class="form-group">
+              <label  class="col-md-3 control-label" for="logradouro">Logradouro *</label>
+              <div  class="col-md-9">
+                <input  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="logradouro" id="logradoouro"
+                  placeholder="Avenida ou rua do local" type="text">
+              </div>
             </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div _ngcontent-c12="" class="panel panel-default">
-      <div _ngcontent-c12="" class="panel-heading">PROFESSORES</div>
-      <div _ngcontent-c12="" class="panel-body">
-        <div _ngcontent-c12="" class="form-group">
-
-          <!-- list of addresses -->
-          <div _ngcontent-c12="" class="col-md-9">
-            <div formArrayName="professores">
-              <div *ngFor="let address of formEvento.controls.professores.controls; let i=index">
-                <!-- address header, show remove button when more than one address available -->
-                <div>
-                  <span>Professor {{i + 1}}</span>
-                  <span *ngIf="formEvento.controls.professores.controls.length > 1" (click)="removeAddress(i)">
-                  </span>
-                </div>
-
-                <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
-                <div [formGroupName]="i">
-                  <!--street-->
-                  <div>
-                    <label>Nome</label>
-                    <input type="text" formControlName="nome">
-                    <!--display error message if street is not valid-->
-                    <small [hidden]="formEvento.controls.professores.controls[i].controls.nome.valid">
-                      Nome é obrigatório.
-                    </small>
-                  </div>
-
-                  <div>
-                  </div>
-                </div>
+            <div  class="form-group">
+              <label  class="col-md-3 control-label" for="endereco_numero">Complemento</label>
+              <div  class="col-md-9">
+                <input  class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="complemento" id="endereco_numero"
+                  placeholder="Número" type="tel">
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <hr>
+        </fieldset>
+      </fieldset>
 
-      <div _ngcontent-c12="" class="panel panel-default">
-        <div _ngcontent-c12="" class="panel-heading">LINK</div>
-        <div _ngcontent-c12="" class="panel-body">
-          <div _ngcontent-c12="" class="form-group">
-            <label _ngcontent-c12="" class="col-md-3 control-label" for="local">Site externo</label>
-            <div _ngcontent-c12="" class="col-md-9">
-              <input _ngcontent-c12="" class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="link" id="establishment"
-                placeholder="Link da página que vende os ingressos deste evento" type="text">
+
+    </div>
+  </div>
+
+  <div  class="panel panel-default">
+    <div  class="panel-heading">PROFESSORES</div>
+    <div  class="panel-body">
+      <div  class="form-group">
+
+        <a  class="bold addArtistInput" (click)="addProfessor()">
+          <span  class="fa-stack fa-lg">
+            <i  class="fa fa-circle-o fa-stack-2x"></i>
+            <i  class="fa fa-plus fa-stack-1x"></i>
+          </span>Adicionar Novo
+        </a>
+      </div>
+
+      <div  class="form-group" formArrayName="professores">
+        <!-- list of addresses -->
+
+        
+         
+
+            <div *ngFor="let address of formEvento.controls.professores.controls; let i=index">
+            
+              <div [formGroupName]="i" class="col-md-12">
+              
+               
+               
+                    <label  class="control-label" >Professor {{i + 1 }} </label>
+                    <br>
+                  <label  class="control-label" >Nome</label>
+
+                  <div class="search-box" class="col-md-9">
+                      <input class="form-control" type="text" formControlName="nome">
+                      <small [hidden]="formEvento.controls.professores.controls[i].controls.nome.valid">
+                          O nome do professor é obrigatório.
+                        </small>
+                      <button class="search-btn" (click)="removeProfessor(i)"><i class="fa fa-close"></i></button>
+                 
+                  </div>
+                
+
+            
+             
+              </div>
+              
+
+             
             </div>
+          
+        
+      </div>
+    </div>
+    <hr>
+
+    <div  class="panel panel-default">
+      <div  class="panel-heading">LINK</div>
+      <div  class="panel-body">
+        <div  class="form-group">
+          <label  class="col-md-3 control-label" for="local">Site externo</label>
+          <div  class="col-md-9">
+            <input  class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="link" id="establishment"
+              placeholder="Link da página que vende os ingressos deste evento" type="text">
           </div>
         </div>
       </div>
-
-      <div _ngcontent-c12="" class="panel panel-default">
-        <div _ngcontent-c12="" class="panel-heading">BANNER DO EVENTO</div>
-        <div _ngcontent-c12="" class="panel-body">
-          <img _ngcontent-c12="" class="img-responsive img-event" src="/assets/images/placeholder-evento.jpg">
-          <label _ngcontent-c12="" class="change-banner bold animated fadeIn" for="banner">
-            <i _ngcontent-c12="" class="fa fa-camera"></i> ALTERAR</label>
-          <input _ngcontent-c12="" id="banner" name="banner" ng2fileselect="" style="display: none" type="file">
-          <p _ngcontent-c12="" class="text-justify">
-            A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
-            <span _ngcontent-c12="" class="bold">300x200</span> pixels.
-          </p>
-        </div>
-      </div>
-      <button type="submit" [disabled]="!formEvento.valid" tooltip="Salva o evento">Enviar</button>
     </div>
+
+    <div  class="panel panel-default">
+      <div  class="panel-heading">BANNER DO EVENTO</div>
+      <div  class="panel-body">
+        <img  class="img-responsive img-event" src="/assets/images/placeholder-evento.jpg">
+        <label  class="change-banner bold animated fadeIn" for="banner">
+          <i  class="fa fa-camera"></i> ALTERAR</label>
+        <input  id="banner" name="banner" ng2fileselect="" style="display: none" type="file">
+        <p  class="text-justify">
+          A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
+          <span  class="bold">300x200</span> pixels.
+        </p>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!formEvento.valid" tooltip="Salva o evento">Enviar</button>
+  </div>
 
 </form>

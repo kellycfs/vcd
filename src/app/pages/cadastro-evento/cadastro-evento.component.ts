@@ -29,11 +29,10 @@ export class CadastroEventoComponent implements OnInit {
     link: new FormControl(),
     banner: new FormControl(),
     ritmos: new FormArray([
-      this.initRitmo(),
+      this.initRitmo()
     ]),
     professores: new FormArray([
-      this.initProfessor(),
-
+      this.initProfessor()
     ])
   });
 
@@ -60,7 +59,7 @@ export class CadastroEventoComponent implements OnInit {
   addRitmo() {
     // add address to the list
     const control = <FormArray>this.formEvento.controls['ritmos'];
-    control.push(this.initProfessor());
+    control.push(this.initRitmo());
   }
 
 
@@ -73,8 +72,6 @@ export class CadastroEventoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.addProfessor();
-    this.addRitmo();
   }
 
   save(evento: Evento) {

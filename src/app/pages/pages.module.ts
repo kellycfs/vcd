@@ -1,3 +1,4 @@
+import { FileUploadService } from './../services/file-upload.service';
 import { LoginService } from './../services/login.service';
 import { EventoService } from './../services/evento.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +12,7 @@ import { ProfessoresComponent } from './professores/professores.component';
 import { EscolasComponent } from './escolas/escolas.component';
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormUploadComponent } from './form-upload/form-upload.component';
 
 @NgModule({
   imports: [
@@ -21,8 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   declarations: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent,
-    CadastroEventoComponent],
+    CadastroEventoComponent,
+    FormUploadComponent],
   exports: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent, CadastroEventoComponent],
-  providers: [EventoService, LoginService]
+  providers: [EventoService, LoginService, FileUploadService]
 })
 export class PagesModule { }

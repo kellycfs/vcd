@@ -31,5 +31,9 @@ export class AppComponent {
     this.router.navigate(['/contato']);
   }
 
+  goUpload() {
+    this.router.navigate(['/upload']);
+  }
+
 
 }

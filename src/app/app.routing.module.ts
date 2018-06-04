@@ -9,6 +9,7 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { ProfessoresComponent } from './pages/professores/professores.component';
+import { FormUploadComponent } from './pages/form-upload/form-upload.component';
 
 const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const APP_ROUTES: Routes = [
 { path: 'escolas', component: EscolasComponent },
 { path: 'professores', component: ProfessoresComponent },
 { path: 'eventos', component: EventosComponent },
+{ path: 'upload', component: FormUploadComponent },
 ];
 
 @NgModule({
