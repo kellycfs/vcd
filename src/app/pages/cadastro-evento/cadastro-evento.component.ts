@@ -80,4 +80,24 @@ export class CadastroEventoComponent implements OnInit {
     console.log(evento);
 }
 
+
+prepareSaveEvento(): Evento {
+  const formModel = this.formEvento.value;
+
+  // deep copy of form model lairs
+  const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
+    (address: Address) => Object.assign({}, address)
+  );
+
+  // return new `Hero` object containing a combination of original hero value(s)
+  // and deep copies of changed form model values
+  const saveHero: Hero = {
+    id: this.hero.id,
+    name: formModel.name as string,
+    // addresses: formModel.secretLairs // <-- bad!
+    addresses: secretLairsDeepCopy
+  };
+  return saveHero;
+}
+
 }

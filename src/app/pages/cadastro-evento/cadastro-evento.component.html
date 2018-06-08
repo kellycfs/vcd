@@ -1,81 +1,79 @@
 <form [formGroup]="formEvento" novalidate (ngSubmit)="save(formEvento)">
-  <!-- we will place our fields here -->
+    <!-- we will place our fields here -->
 
-  <div  class="panel panel-default">
-    <div  class="panel-heading">EVENTO</div>
-    <div  class="panel-body">
+    <div class="panel panel-default">
+        <div class="panel-heading">EVENTO</div>
+        <div class="panel-body">
 
-      <div  class="form-group">
-        <label  class="col-md-3 control-label" for="data">Nome *</label>
-        <div  class="col-md-9">
-          <input type="text" class="form-control ng-untouched ng-pristine ng-invalid" formControlName="nome">
-          <!--display error message if name is not valid-->
-          <small *ngIf="!formEvento.controls.nome.valid" class="text-danger">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="data">Nome *</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-invalid" formControlName="nome">
+                    <!--display error message if name is not valid-->
+                    <small *ngIf="!formEvento.controls.nome.valid" class="text-danger">
             Name is required (minimum 5 characters).
           </small>
-        </div>
-      </div>
+                </div>
+            </div>
 
 
-      <div  class="form-group">
-        <label  class="col-md-3 control-label" for="data">Descrição</label>
-        <div  class="col-md-9">
-          <input type="text" class="form-control ng-untouched ng-pristine ng-invalid" formControlName="descricao">
-          <!--display error message if name is not valid-->
-          <small *ngIf="!formEvento.controls.descricao.valid" class="text-danger">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="data">Descrição</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-invalid" formControlName="descricao">
+                    <!--display error message if name is not valid-->
+                    <small *ngIf="!formEvento.controls.descricao.valid" class="text-danger">
             Name is required (minimum 5 characters).
           </small>
-        </div>
-      </div>
+                </div>
+            </div>
 
 
-      <div  class="form-group">
-          <label  class="col-md-3 control-label" for="data">Data *</label>
-          <div  class="col-md-3 date">
-            <div class="input-group">
-              <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="dataInicio" ngbDatepicker #d="ngbDatepicker">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="data">Data *</label>
+                <div class="col-md-3 date">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="dataInicio" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                   <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
                 </button>
-              </div>
+                        </div>
+                    </div>
+                </div>
+                <label class="col-md-4 control-label" for="hora">Horário local *</label>
+                <div class="col-md-2 time">
+
+                    <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="horaInicio" id="hora">
+
+                </div>
             </div>
-          </div>
-        <label  class="col-md-4 control-label" for="hora">Horário local *</label>
-        <div  class="col-md-2 time">
-
-          <input  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="horaInicio" id="hora">
-
-        </div>
-      </div>
 
 
-      <fieldset formGroupName="local">
-        <hr >
-        <div  class="form-group suggestion-typeahead">
-          <label  class="col-md-3 control-label" for="local">Local *</label>
-          <div  class="col-md-9">
-            <input  autocomplete="off" class="form-control ng-pristine ng-invalid ng-touched" formcontrolname="nome"
-              id="establishment" placeholder="Ex. Arena Castelão" type="text" typeaheadminlength="3" typeaheadoptionfield="name"
-              typeaheadoptionslimit="7" typeaheadwaitms="1000">
-            <!---->
-            <!---->
-          </div>
-        </div>
+            <div formGroupName="local">
+                <hr>
+                <div class="form-group suggestion-typeahead">
+                    <label class="col-md-3 control-label" for="local">Local *</label>
+                    <div class="col-md-9">
+                        <input autocomplete="off" class="form-control ng-pristine ng-invalid ng-touched" formControlName="nome" id="establishment" placeholder="Ex. Arena Castelão" type="text" typeaheadminlength="3" typeaheadoptionfield="name" typeaheadoptionslimit="7" typeaheadwaitms="1000">
+                        <!---->
+                        <!---->
+                    </div>
+                </div>
 
-        <fieldset formGroupName="endereco">
+                <div formGroupName="endereco">
 
-          <div  class="form-group">
-            <label  class="col-md-3 control-label" for="cep">CEP</label>
-            <div  class="col-md-9">
-              <input  class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="cep" id="cep" type="tel">
-            </div>
-          </div>
-          <div  class="establishment-detail">
-            <div  class="form-group">
-              <label  class="col-md-3 control-label" for="uf">Estado *</label>
-              <div  class="col-md-3">
-                <select  class="col-md-3 form-control ng-untouched ng-pristine ng-invalid" formcontrolname="estado" id="uf">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="cep">CEP</label>
+                        <div class="col-md-9">
+                            <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="cep" id="cep" type="tel">
+                        </div>
+                    </div>
+                    <div class="establishment-detail">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="uf">Estado *</label>
+                            <div class="col-md-3">
+                                <select class="col-md-3 form-control ng-untouched ng-pristine ng-invalid" formControlName="estado" id="uf">
                   <option  value="" disabled="">UF</option>
                   <!---->
                   <option  value="1: AC">AC</option>
@@ -106,123 +104,119 @@
                   <option  value="26: SP">SP</option>
                   <option  value="27: TO">TO</option>
                 </select>
-              </div>
-              <label  class="col-md-2 control-label" for="cidade">Cidade *</label>
-              <div  class="col-md-4" name="cidade">
-                <select  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="cidade" id="cidade">
+                            </div>
+                            <label class="col-md-2 control-label" for="cidade">Cidade *</label>
+                            <div class="col-md-4" name="cidade">
+                                <select class="form-control ng-untouched ng-pristine ng-invalid" formControlName="cidade" id="cidade">
                   <option  value="" disabled="">Selecione a cidade...</option>
                   <!---->
                 </select>
-              </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="bairro">Bairro *</label>
+                            <div class="col-md-9">
+                                <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="bairro" id="bairro" placeholder="Bairro ou distrito do local" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="logradouro">Logradouro *</label>
+                            <div class="col-md-9">
+                                <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="logradouro" id="logradoouro" placeholder="Avenida ou rua do local" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="endereco_numero">Complemento</label>
+                            <div class="col-md-9">
+                                <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="complemento" id="endereco_numero" placeholder="Número" type="tel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div  class="form-group">
-              <label  class="col-md-3 control-label" for="bairro">Bairro *</label>
-              <div  class="col-md-9">
-                <input  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="bairro" id="bairro" placeholder="Bairro ou distrito do local"
-                  type="text">
-              </div>
-            </div>
-            <div  class="form-group">
-              <label  class="col-md-3 control-label" for="logradouro">Logradouro *</label>
-              <div  class="col-md-9">
-                <input  class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="logradouro" id="logradoouro"
-                  placeholder="Avenida ou rua do local" type="text">
-              </div>
-            </div>
-            <div  class="form-group">
-              <label  class="col-md-3 control-label" for="endereco_numero">Complemento</label>
-              <div  class="col-md-9">
-                <input  class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="complemento" id="endereco_numero"
-                  placeholder="Número" type="tel">
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </fieldset>
 
 
+        </div>
     </div>
-  </div>
 
-  <div  class="panel panel-default">
-    <div  class="panel-heading">PROFESSORES</div>
-    <div  class="panel-body">
-      <div  class="form-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">PROFESSORES</div>
+        <div class="panel-body">
+            <div class="form-group">
 
-        <a  class="bold addArtistInput" (click)="addProfessor()">
-          <span  class="fa-stack fa-lg">
+                <a class="bold addArtistInput" (click)="addProfessor()">
+                    <span class="fa-stack fa-lg">
             <i  class="fa fa-circle-o fa-stack-2x"></i>
             <i  class="fa fa-plus fa-stack-1x"></i>
           </span>Adicionar Novo
-        </a>
-      </div>
+                </a>
+            </div>
 
-      <div  class="form-group" formArrayName="professores">
-        <!-- list of addresses -->
+            <div class="form-group" formArrayName="professores">
+                <!-- list of addresses -->
 
-        
-         
 
-            <div *ngFor="let address of formEvento.controls.professores.controls; let i=index">
-            
-              <div [formGroupName]="i" class="col-md-12">
-              
-               
-               
-                    <label  class="control-label" >Professor {{i + 1 }} </label>
-                    <br>
-                  <label  class="control-label" >Nome</label>
 
-                  <div class="search-box" class="col-md-9">
-                      <input class="form-control" type="text" formControlName="nome">
-                      <small [hidden]="formEvento.controls.professores.controls[i].controls.nome.valid">
+
+                <div *ngFor="let address of formEvento.controls.professores.controls; let i=index">
+
+                    <div [formGroupName]="i" class="col-md-12">
+
+
+
+                        <label class="control-label">Professor {{i + 1 }} </label>
+                        <br>
+                        <label class="control-label">Nome</label>
+
+                        <div class="search-box" class="col-md-9">
+                            <input class="form-control" type="text" formControlName="nome">
+                            <small [hidden]="formEvento.controls.professores.controls[i].controls.nome.valid">
                           O nome do professor é obrigatório.
                         </small>
-                      <button class="search-btn" (click)="removeProfessor(i)"><i class="fa fa-close"></i></button>
-                 
-                  </div>
-                
+                            <button class="search-btn" (click)="removeProfessor(i)"><i class="fa fa-close"></i></button>
 
-            
-             
-              </div>
-              
+                        </div>
 
-             
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
             </div>
-          
-        
-      </div>
-    </div>
-    <hr>
-
-    <div  class="panel panel-default">
-      <div  class="panel-heading">LINK</div>
-      <div  class="panel-body">
-        <div  class="form-group">
-          <label  class="col-md-3 control-label" for="local">Site externo</label>
-          <div  class="col-md-9">
-            <input  class="form-control ng-untouched ng-pristine ng-valid" formcontrolname="link" id="establishment"
-              placeholder="Link da página que vende os ingressos deste evento" type="text">
-          </div>
         </div>
-      </div>
-    </div>
+        <hr>
 
-    <div  class="panel panel-default">
-      <div  class="panel-heading">BANNER DO EVENTO</div>
-      <div  class="panel-body">
-        <img  class="img-responsive img-event" src="/assets/images/placeholder-evento.jpg">
-        <label  class="change-banner bold animated fadeIn" for="banner">
+        <div class="panel panel-default">
+            <div class="panel-heading">LINK</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="local">Site externo</label>
+                    <div class="col-md-9">
+                        <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="link" id="establishment" placeholder="Link da página que vende os ingressos deste evento" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">BANNER DO EVENTO</div>
+            <div class="panel-body">
+                <img class="img-responsive img-event" src="/assets/images/placeholder-evento.jpg">
+                <label class="change-banner bold animated fadeIn" for="banner">
           <i  class="fa fa-camera"></i> ALTERAR</label>
-        <input  id="banner" name="banner" ng2fileselect="" style="display: none" type="file">
-        <p  class="text-justify">
-          A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
-          <span  class="bold">300x200</span> pixels.
-        </p>
-      </div>
+                <input id="banner" name="banner" ng2fileselect="" style="display: none" type="file">
+                <p class="text-justify">
+                    A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
+                    <span class="bold">300x200</span> pixels.
+                </p>
+            </div>
+        </div>
+        <button type="submit" [disabled]="!formEvento.valid" tooltip="Salva o evento">Enviar</button>
     </div>
-    <button type="submit" [disabled]="!formEvento.valid" tooltip="Salva o evento">Enviar</button>
-  </div>
 
 </form>
