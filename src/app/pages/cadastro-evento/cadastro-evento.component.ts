@@ -1,3 +1,4 @@
+import { EventoService } from './../../services/evento.service';
 import { Evento } from './../../model/evento';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
@@ -69,22 +70,23 @@ export class CadastroEventoComponent implements OnInit {
     control.removeAt(i);
   }
 
-  constructor() { }
+  constructor(private eventoService: EventoService) { }
 
   ngOnInit() {
   }
 
-  save(evento: Evento) {
+  save() {
+    const evento = this.prepareSaveEvento();
     // call API to save
-    // ...
+    this.eventoService.save(evento);
     console.log(evento);
 }
 
 
 prepareSaveEvento(): Evento {
-  const formModel = this.formEvento.value;
+  const evento = this.formEvento.value;
 
-  // deep copy of form model lairs
+  /*// deep copy of form model lairs
   const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
     (address: Address) => Object.assign({}, address)
   );
@@ -98,6 +100,8 @@ prepareSaveEvento(): Evento {
     addresses: secretLairsDeepCopy
   };
   return saveHero;
+  */
+ return evento;
 }
 
 }

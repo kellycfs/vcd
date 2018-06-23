@@ -43,7 +43,7 @@ export class EventoService {
   add(evento: Evento) {
     // Adicionando uma nova tarefa.
     // Toda nova tarefa é gravada como em aberto por padrão.
-    evento.done = false;
+    // evento.done = false;
 
     // Adicionando o item na lista de itens.
     // Como essa lista é carregada antes, automaticamente o angularfire2

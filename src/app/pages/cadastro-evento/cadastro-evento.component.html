@@ -1,4 +1,4 @@
-<form [formGroup]="formEvento" novalidate (ngSubmit)="save(formEvento)">
+<form [formGroup]="formEvento" novalidate (ngSubmit)="save()">
     <!-- we will place our fields here -->
 
     <div class="panel panel-default">
@@ -212,11 +212,13 @@
                 <input id="banner" name="banner" ng2fileselect="" style="display: none" type="file">
                 <p class="text-justify">
                     A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
-                    <span class="bold">300x200</span> pixels.
+                    <span class="bold">940 X 567</span> pixels.
                 </p>
             </div>
         </div>
-        <button type="submit" [disabled]="!formEvento.valid" tooltip="Salva o evento">Enviar</button>
-    </div>
 
+        
+        <button class="btn btn-block btn-round btn-d pull-right" type="submit" [disabled]="!formEvento.valid" tooltip="Salva o evento">Enviar</button>
+    </div>
+<hr>
 </form>

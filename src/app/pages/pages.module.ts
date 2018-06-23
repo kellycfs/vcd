@@ -13,6 +13,7 @@ import { EscolasComponent } from './escolas/escolas.component';
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormUploadComponent } from './form-upload/form-upload.component';
+import { ContatoComponent } from './contato/contato.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
   ],
   declarations: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent,
     CadastroEventoComponent,
-    FormUploadComponent],
+    FormUploadComponent,
+    ContatoComponent],
   exports: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent, CadastroEventoComponent],
   providers: [EventoService, LoginService, FileUploadService]
 })

@@ -1,3 +1,4 @@
+import { ContatoComponent } from './pages/contato/contato.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { EscolasComponent } from './pages/escolas/escolas.component';
@@ -18,6 +19,7 @@ const APP_ROUTES: Routes = [
 { path: 'professores', component: ProfessoresComponent },
 { path: 'eventos', component: EventosComponent },
 { path: 'upload', component: FormUploadComponent },
+{ path: 'contato', component: ContatoComponent},
 ];
 
 @NgModule({
