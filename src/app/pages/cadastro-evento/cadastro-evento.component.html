@@ -27,11 +27,11 @@
 
                                 <label class="sr-only" for="name">Nome</label>
 
-                                <input type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" placeholder="NOME DO EVENTO*" formControlName="nome" required="required">
+                                <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" placeholder="NOME DO EVENTO*" formControlName="nome" required="required">
                                 <!--display error message if name is not valid-->
-                               
+
                                 <div *ngIf="submitted && f.nome.errors" class="text-danger">
-                                        <small *ngIf="f.nome.errors.required"> Campo Obrigatório.</small>
+                                    <small *ngIf="f.nome.errors.required"> Campo Obrigatório.</small>
                                 </div>
 
                             </div>
@@ -41,11 +41,12 @@
 
                                 <label class="sr-only" for="descricao">Descrição</label>
 
-                                <textarea class="form-control ng-untouched ng-pristine ng-valid"  [ngClass]="{ 'is-invalid': submitted && f.descricao.errors }"  rows="7" formControlName="descricao"  placeholder="DESCRIÇÃO*" style="margin: 0px -0.78125px 0px 0px; width: 100%; height: 119px;" required="required"></textarea>
+                                <textarea class="form-control ng-untouched ng-pristine ng-valid" [ngClass]="{ 'is-invalid': submitted && f.descricao.errors }" rows="7" formControlName="descricao" placeholder="DESCRIÇÃO*" style="margin: 0px -0.78125px 0px 0px; width: 100%; height: 119px;"
+                                    required="required"></textarea>
 
                                 <!--display error message if name is not valid-->
                                 <div *ngIf="submitted && f.descricao.errors" class="text-danger">
-                                        <small *ngIf="f.descricao.errors.required"> Campo Obrigatório.</small>
+                                    <small *ngIf="f.descricao.errors.required"> Campo Obrigatório.</small>
                                 </div>
 
 
@@ -56,8 +57,7 @@
                                     <div class="input-group-addon">
                                         <i class="icon-calendar"></i>
                                     </div>
-                                    <input class="form-control" required="required" placeholder="yyyy-mm-dd" name="dp" formControlName="dataInicio" ngbDatepicker #d="ngbDatepicker"
-                                        type="date"  [ngClass]="{ 'is-invalid': submitted && f.dataInicio.errors }" >
+                                    <input class="form-control" required="required" placeholder="yyyy-mm-dd" name="dp" formControlName="dataInicio" ngbDatepicker #d="ngbDatepicker" type="date" [ngClass]="{ 'is-invalid': submitted && f.dataInicio.errors }">
 
                                 </div>
                             </div>
@@ -99,9 +99,8 @@
                                 <div formGroupName="local">
                                     <div class="form-group suggestion-typeahead">
 
-                                        <input autocomplete="off" class="form-control ng-untouched ng-pristine ng-valid" formControlName="nome" id="establishment"
-                                            placeholder="NOME DO LOCAL*" type="text" typeaheadminlength="3" typeaheadoptionfield="name" required="required"
-                                            typeaheadoptionslimit="7" typeaheadwaitms="1000">
+                                        <input autocomplete="off" class="form-control ng-untouched ng-pristine ng-valid" formControlName="nome" id="establishment" placeholder="NOME DO LOCAL*" type="text" typeaheadminlength="3" typeaheadoptionfield="name" required="required" typeaheadoptionslimit="7"
+                                            typeaheadwaitms="1000">
 
                                     </div>
 
@@ -117,10 +116,10 @@
                                         <div class="form-group">
                                             <label class="sr-only" for="uf">Estado *</label>
 
-                                            <select class="form-control ng-untouched ng-pristine ng-invalid" type="text" formControlName="estado"  id="uf" required>
+                                            <select class="form-control ng-untouched ng-pristine ng-invalid" type="text" formControlName="estado" id="uf" required>
                                                 <option value="" disabled selected hidden>UF*</option>
                                                 <!---->
-                                                
+
                                                 <option value="1: AC">AC</option>
                                                 <option value="2: AL">AL</option>
                                                 <option value="3: AM">AM</option>
@@ -153,8 +152,7 @@
                                         <div class="form-group">
                                             <label class="sr-only" for="cidade">Cidade *</label>
 
-                                            <select class="form-control" placeholder="CIDADE*" formControlName="cidade" id="cidade"
-                                                required>
+                                            <select class="form-control" placeholder="CIDADE*" formControlName="cidade" id="cidade" required>
                                                 <option value="" hidden selected="" disabled="">CIDADE*</option>
                                                 <!---->
                                             </select>
@@ -163,22 +161,19 @@
                                         <div class="form-group">
                                             <label class="sr-only" for="bairro">Bairro *</label>
 
-                                            <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="bairro" id="bairro" placeholder="Bairro ou distrito do local"
-                                                type="text">
+                                            <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="bairro" id="bairro" placeholder="Bairro ou distrito do local" type="text">
 
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="logradouro">Logradouro *</label>
 
-                                            <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="logradouro" id="logradoouro" placeholder="Avenida ou rua do local"
-                                                type="text">
+                                            <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="logradouro" id="logradoouro" placeholder="Avenida ou rua do local" type="text">
 
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="endereco_numero">Complemento</label>
 
-                                            <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="complemento" id="endereco_numero" placeholder="COMPLEMENTO"
-                                                type="tel">
+                                            <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="complemento" id="endereco_numero" placeholder="COMPLEMENTO" type="tel">
 
                                         </div>
                                     </div>
@@ -205,14 +200,14 @@
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle-o fa-stack-2x"></i>
                                             <i class="fa fa-plus fa-stack-1x"></i>
-                                        </span> ADICIONAR NOVO 
+                                        </span> ADICIONAR NOVO
                                     </a>
                                 </div>
 
                                 <div class="form-group" formArrayName="professores">
                                     <!-- list of addresses -->
 
-                                    <div *ngFor="let address of formEvento.controls.professores.controls; let i=index">
+                                    <div *ngFor="let professor of formEvento.controls.professores.controls; let i=index">
 
                                         <div [formGroupName]="i" class="form-group">
 
@@ -247,8 +242,7 @@
                             <div class="panel-body">
                                 <div class="form-group">
 
-                                    <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="link" id="establishment" placeholder="Link da página que vende os ingressos deste evento"
-                                        type="text">
+                                    <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="link" id="establishment" placeholder="Link da página que vende os ingressos deste evento" type="text">
 
                                 </div>
                             </div>
@@ -264,20 +258,15 @@
                         </div>
                         <div class="panel-collapse collapse in" id="panelbanner">
                             <div class="panel-body">
-                                <img class="img-responsive img-event" src="/assets/images/placeholder-evento.jpg">
-                                <label class="change-banner bold animated fadeIn" for="banner">
-                                    <i class="fa fa-camera"></i> ALTERAR</label>
-                                <input id="banner" name="banner" ng2fileselect="" style="display: none" type="file">
-                                <p class="text-justify">
-                                    A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
-                                    <span class="bold">940 X 567</span> pixels.
-                                </p>
+
+                                <app-form-upload (eventFile)="changeBanner($event)"></app-form-upload>
+
                             </div>
                         </div>
                     </div>
 
 
-                    <button class="btn btn-block btn-round btn-d pull-right" type="submit" tooltip="Salva o evento">Enviar</button>
+                    <button class="btn btn-block btn-round btn-d pull-right" type="submit" tooltip="Salva o evento">Salvar</button>
 
                     <hr>
                 </form>

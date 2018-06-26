@@ -1,6 +1,6 @@
 import { FileUploadService } from './../../services/file-upload.service';
 import { FileUpload } from './../../model/file-upload';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -14,6 +14,8 @@ export class FormUploadComponent implements OnInit {
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
 
+  @Output() eventFile = new EventEmitter<any>();
+
   constructor(private uploadService: FileUploadService) { }
 
   ngOnInit() {
@@ -25,8 +27,11 @@ export class FormUploadComponent implements OnInit {
     if (file.type.match('image.*')) {
       this.selectedFiles = event.target.files;
     } else {
-      alert('invalid format!');
+      alert('Formato de arquivo inválido! Selecione uma imagem para continuar.');
     }
+
+    this.eventFile.emit(file);
+
   }
 
   upload() {

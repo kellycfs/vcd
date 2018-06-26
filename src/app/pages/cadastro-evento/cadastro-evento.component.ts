@@ -1,7 +1,10 @@
+import { FileUploadService } from './../../services/file-upload.service';
+import { FileUpload } from './../../model/file-upload';
 import { EventoService } from './../../services/evento.service';
 import { Evento } from './../../model/evento';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cadastro-evento',
@@ -9,6 +12,9 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./cadastro-evento.component.css']
 })
 export class CadastroEventoComponent implements OnInit {
+
+  // banner do evento
+
 
   submitted = false;
 
@@ -37,6 +43,29 @@ export class CadastroEventoComponent implements OnInit {
       // this.initProfessor()
     ])
   });
+
+  constructor(private eventoService: EventoService, private uploadService: FileUploadService) { }
+
+    ngOnInit() {
+
+
+    }
+
+
+  changeBanner(file) {
+      this.formEvento.controls.banner = file;
+      console.log('Foi emitido o evento e chegou no pai >>>> ',  this.formEvento.controls.banner );
+  }
+
+  upload() {
+
+    const file: File =  this.formEvento.controls.banner.value;
+    const progress: { percentage: number } = { percentage: 0 };
+
+    console.log("uploading image banner");
+    const currentFileUpload = new FileUpload(file);
+    this.uploadService.pushFileToStorage(currentFileUpload, progress);
+  }
 
   // convenience getter for easy access to form fields
   get f() { return this.formEvento.controls; }
@@ -74,14 +103,12 @@ export class CadastroEventoComponent implements OnInit {
     control.removeAt(i);
   }
 
-  constructor(private eventoService: EventoService) { }
 
-  ngOnInit() {
-  }
 
   save() {
     const evento = this.prepareSaveEvento();
     this.submitted = true;
+    this.upload();
 
     // stop here if form is invalid
     if (this.formEvento.invalid) {
@@ -91,6 +118,7 @@ export class CadastroEventoComponent implements OnInit {
     alert('SUCCESS!! :-)');
     // call API to save
     this.eventoService.save(evento);
+    this.upload();
     console.log(evento);
   }
 
@@ -102,7 +130,7 @@ export class CadastroEventoComponent implements OnInit {
     const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
       (address: Address) => Object.assign({}, address)
     );
-  
+
     // return new `Hero` object containing a combination of original hero value(s)
     // and deep copies of changed form model values
     const saveHero: Hero = {
