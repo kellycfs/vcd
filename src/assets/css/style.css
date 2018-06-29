@@ -2925,3 +2925,8 @@ Google map
     width: 100%;
   }
 }
+
+
+.ui-calendar, ui.inputtext {
+  width: 100%;
+}

@@ -14,6 +14,7 @@ import { FirebaseConfig } from './../environments/firebase.config';
 import { AngularFireModule } from 'angularfire2/index';
 import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginModule } from './login/login.module';
     AngularFireModule.initializeApp(FirebaseConfig),
     PagesModule,
     ComponentsModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot()
   ],
   exports: [PagesModule, ComponentsModule, NgbModule],

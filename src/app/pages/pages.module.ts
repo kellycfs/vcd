@@ -1,3 +1,4 @@
+import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap/accordion/accordion.module';
 import { FileUploadService } from './../services/file-upload.service';
 import { LoginService } from './../services/login.service';
 import { EventoService } from './../services/evento.service';
@@ -14,6 +15,10 @@ import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ContatoComponent } from './contato/contato.component';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {InputMaskModule} from 'primeng/inputmask';
+import {CalendarModule} from 'primeng/calendar';
+
 
 @NgModule({
   imports: [
@@ -21,6 +26,9 @@ import { ContatoComponent } from './contato/contato.component';
     ComponentsModule,
     FormsModule,
     ReactiveFormsModule,
+    MultiSelectModule,
+    InputMaskModule,
+    CalendarModule,
     NgbModule
   ],
   declarations: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent,

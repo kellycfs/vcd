@@ -1,62 +1,23 @@
-
 <div class="page-loader">
-  <div class="loader">Loading...</div>
+    <div class="loader">Loading...</div>
 </div>
-<nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="custom-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#totop" (click)="goHome()">Home</a>
-        </li>
-        <li>
-          <a class="section-scroll" (click)="goEventos()" href="#body">Eventos</a>
-        </li>
-        <li>
-          <a class="section-scroll" (click)="goProfessores()" href="#body">Professores</a>
-        </li>
-        <li>
-          <a class="section-scroll" (click)="goEscolas()" href="#body">Escolas</a>
-        </li>
-        <li>
-          <a class="section-scroll" (click)="goUpload()" href="#body">Upload</a>
-        </li>
-        <li>
-          <a class="section-scroll" (click)="goContato()" href="#body">Contato</a>
-        </li>
-        <li>
-          <app-login-form></app-login-form>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<app-menu></app-menu>
 <section class="home-section home-full-height bg-dark bg-gradient" id="home" data-background="assets/7893.jpg">
-  <div class="titan-caption">
-    <div class="caption-content">
-      <div class="font-alt mb-30 titan-title-size-4">Vem Cá Dançar!</div>
-      <div class="font-alt mb-40 titan-title-size-1">Encontre eventos, professores ou escolas de dança...</div>
+    <div class="titan-caption">
+        <div class="caption-content">
+            <div class="font-alt mb-30 titan-title-size-4">Vem Cá Dançar!</div>
+            <div class="font-alt mb-40 titan-title-size-1">Encontre eventos, professores ou escolas de dança...</div>
+        </div>
     </div>
-  </div>
 </section>
-<div class="main" id="body">
-  <router-outlet></router-outlet>
-  
- 
-  <hr class="divider-d">
-  <app-rodape></app-rodape>
-</div>
+<section class="module">
+    <div class="container" id="body">
+        <router-outlet></router-outlet>
+    </div>
+</section>
+<app-rodape></app-rodape>
 <div class="scroll-up">
-  <a href="#totop">
-    <i class="fa fa-angle-double-up"></i>
-  </a>
+    <a href="#totop">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
 </div>

@@ -1,3 +1,4 @@
+import { SelectItem } from 'primeng/api';
 import { FileUploadService } from './../../services/file-upload.service';
 import { FileUpload } from './../../model/file-upload';
 import { EventoService } from './../../services/evento.service';
@@ -15,6 +16,9 @@ export class CadastroEventoComponent implements OnInit {
 
   // banner do evento
 
+  ritmos: SelectItem[];
+
+      selectedCars1: string[] = [];
 
   submitted = false;
 
@@ -36,15 +40,24 @@ export class CadastroEventoComponent implements OnInit {
     horaInicio: new FormControl('', Validators.required),
     link: new FormControl(),
     banner: new FormControl(),
-    ritmos: new FormArray([
-      // this.initRitmo()
-    ]),
+    ritmos: new FormControl([]),
     professores: new FormArray([
       // this.initProfessor()
     ])
   });
 
-  constructor(private eventoService: EventoService, private uploadService: FileUploadService) { }
+  constructor(private eventoService: EventoService, private uploadService: FileUploadService) {
+    this.ritmos = [
+      {label: 'Zouk', value: 'Zouk'},
+      {label: 'Samba', value: 'Samba'},
+      {label: 'Salsa', value: 'Salsa'},
+      {label: 'Kizomba', value: 'Kizomba'},
+      {label: 'Bachata', value: 'Bachata'},
+      {label: 'Forró', value: 'Forró'},
+      {label: 'Bolero', value: 'Bolero'},
+      {label: 'West Coast Swing', value: 'West Coast Swing'}
+  ];
+   }
 
     ngOnInit() {
 
@@ -63,15 +76,16 @@ export class CadastroEventoComponent implements OnInit {
     const progress: { percentage: number } = { percentage: 0 };
 
     console.log("uploading image banner");
-    const currentFileUpload = new FileUpload(file);
+    if(file) {
+       const currentFileUpload = new FileUpload(file);
     this.uploadService.pushFileToStorage(currentFileUpload, progress);
+    }
   }
 
   // convenience getter for easy access to form fields
   get f() { return this.formEvento.controls; }
 
   initRitmo() {
-
     return new FormGroup({
       nome: new FormControl()
     });
@@ -108,7 +122,6 @@ export class CadastroEventoComponent implements OnInit {
   save() {
     const evento = this.prepareSaveEvento();
     this.submitted = true;
-    this.upload();
 
     // stop here if form is invalid
     if (this.formEvento.invalid) {
@@ -125,7 +138,7 @@ export class CadastroEventoComponent implements OnInit {
 
   prepareSaveEvento(): Evento {
     const evento = this.formEvento.value;
-
+    console.log(evento);
     /*// deep copy of form model lairs
     const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
       (address: Address) => Object.assign({}, address)

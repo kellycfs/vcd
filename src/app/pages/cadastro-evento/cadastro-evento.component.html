@@ -1,122 +1,125 @@
-<section class="module pb-0" id="professores">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">Novo Evento</h2>
-                <div class="module-subtitle font-serif"></div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h2 class="module-title font-alt">Novo Evento</h2>
+        <div class="module-subtitle font-serif"></div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
+</div>
+<div class="row">
+    <div class="col-sm-12">
 
-                <form [formGroup]="formEvento" novalidate (ngSubmit)="save()">
+        <form [formGroup]="formEvento" novalidate (ngSubmit)="save()">
+            <!-- detalhes-->
+            <div class="panel panel-default">
 
+                <div class="panel-heading">
+                    <h4 class="panel-title font-alt">DETALHES</h4>
+                </div>
+                <div class="panel-body">
 
-                    <!-- detalhes-->
+                    <div class="form-group">
 
-                    <div class="panel panel-default">
+                        <label class="sr-only" for="name">Nome</label>
 
-                        <div class="panel-heading">
-                            <h4 class="panel-title font-alt">DETALHES</h4>
+                        <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" placeholder="NOME DO EVENTO*" formControlName="nome" required="required">
+                        <!--display error message if name is not valid-->
+
+                        <div *ngIf="submitted && f.nome.errors" class="text-danger">
+                            <small *ngIf="f.nome.errors.required"> Campo Obrigatório.</small>
                         </div>
-                        <div class="panel-body">
 
-                            <div class="form-group">
+                    </div>
 
-                                <label class="sr-only" for="name">Nome</label>
 
-                                <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" placeholder="NOME DO EVENTO*" formControlName="nome" required="required">
-                                <!--display error message if name is not valid-->
+                    <div class="form-group">
 
-                                <div *ngIf="submitted && f.nome.errors" class="text-danger">
-                                    <small *ngIf="f.nome.errors.required"> Campo Obrigatório.</small>
-                                </div>
+                        <label class="sr-only" for="descricao">Descrição</label>
 
+                        <textarea pInputTextarea class="form-control ng-untouched ng-pristine ng-valid" [ngClass]="{ 'is-invalid': submitted && f.descricao.errors }" rows="7" formControlName="descricao" placeholder="DESCRIÇÃO*" style="margin: 0px -0.78125px 0px 0px; width: 100%; height: 119px;"
+                            required="required" autoResize="autoResize"></textarea>
+
+                        <!--display error message if name is not valid-->
+                        <div *ngIf="submitted && f.descricao.errors" class="text-danger">
+                            <small *ngIf="f.descricao.errors.required"> Campo Obrigatório.</small>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group" >
+                            <div class="input-group-addon">
+                                <i class="icon-calendar"></i>
                             </div>
+                            
+                            <p-calendar  autoZIndex="false" baseZIndex="9999" 
+                           showButtonBar="true" monthNavigator="true" required="required" size="80%" placeholder="" name="dp" formControlName="dataInicio" [ngClass]="{ 'is-invalid': submitted && f.dataInicio.errors }"></p-calendar>
 
+                        </div>
 
-                            <div class="form-group">
-
-                                <label class="sr-only" for="descricao">Descrição</label>
-
-                                <textarea class="form-control ng-untouched ng-pristine ng-valid" [ngClass]="{ 'is-invalid': submitted && f.descricao.errors }" rows="7" formControlName="descricao" placeholder="DESCRIÇÃO*" style="margin: 0px -0.78125px 0px 0px; width: 100%; height: 119px;"
-                                    required="required"></textarea>
-
-                                <!--display error message if name is not valid-->
-                                <div *ngIf="submitted && f.descricao.errors" class="text-danger">
-                                    <small *ngIf="f.descricao.errors.required"> Campo Obrigatório.</small>
-                                </div>
-
-
+                 
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="icon-clock"></i>
                             </div>
-
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="icon-calendar"></i>
-                                    </div>
-                                    <input class="form-control" required="required" placeholder="yyyy-mm-dd" name="dp" formControlName="dataInicio" ngbDatepicker #d="ngbDatepicker" type="date" [ngClass]="{ 'is-invalid': submitted && f.dataInicio.errors }">
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="icon-clock"></i>
-                                    </div>
-                                    <input class="form-control ng-untouched ng-pristine ng-valid" style="width: 80%" formControlName="horaInicio" id="hora" required="required">
-                                    <div>
-                                        <select class="form-control input-sm" id="time" name="time" style="width: 20%" type="text" required="required">
+                            
+                           <div>
+                              <!-- <p-inputMask class="form-control" size="70%" formControlName="horaInicio" id="hora" mask="99:99" required="required"></p-inputMask>
+                                <select class="form-control input-sm" id="time" name="time" style="width: 20%" type="text" required="required">
                                             <option value="AM" selected="">AM</option>
                                             <option value="PM">PM</option>
-
-                                        </select>
-                                    </div>
-                                </div>
+                                </select> -->
+                                <p-calendar autoZIndex="false" baseZIndex="9999"  formControlName="horaInicio" [timeOnly]="true"></p-calendar>
 
                             </div>
 
+                           
+                        </div>
 
-
-
-
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <p-multiSelect class="form-control" [options]="ritmos" formControlName="ritmos" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         </div>
                     </div>
 
 
-                    <!-- local -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title font-alt">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#local">LOCAL DO EVENTO</a>
-                            </h4>
-                        </div>
+                </div>
+            </div>
 
-                        <div class="panel-collapse collapse in" id="local">
-                            <div class="panel-body">
-                                <div formGroupName="local">
-                                    <div class="form-group suggestion-typeahead">
 
-                                        <input autocomplete="off" class="form-control ng-untouched ng-pristine ng-valid" formControlName="nome" id="establishment" placeholder="NOME DO LOCAL*" type="text" typeaheadminlength="3" typeaheadoptionfield="name" required="required" typeaheadoptionslimit="7"
-                                            typeaheadwaitms="1000">
+            <!-- local -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title font-alt">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#local">LOCAL DO EVENTO</a>
+                    </h4>
+                </div>
 
-                                    </div>
+                <div class="panel-collapse collapse in" id="local">
+                    <div class="panel-body">
+                        <div formGroupName="local">
+                            <div class="form-group suggestion-typeahead">
 
-                                    <div formGroupName="endereco">
+                                <input autocomplete="off" class="form-control ng-untouched ng-pristine ng-valid" formControlName="nome" id="establishment" placeholder="NOME DO LOCAL*" type="text" typeaheadminlength="3" typeaheadoptionfield="name" required="required" typeaheadoptionslimit="7"
+                                    typeaheadwaitms="1000">
 
-                                        <div class="form-group">
-                                            <label class="sr-only" for="cep">CEP</label>
+                            </div>
 
-                                            <input class="form-control ng-untouched ng-pristine ng-valid" placeholder="CEP" formControlName="cep" id="cep" type="tel">
+                            <div formGroupName="endereco">
 
-                                        </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="cep">CEP</label>
 
-                                        <div class="form-group">
-                                            <label class="sr-only" for="uf">Estado *</label>
+                                    <input class="form-control ng-untouched ng-pristine ng-valid" placeholder="CEP" formControlName="cep" id="cep" type="tel">
 
-                                            <select class="form-control ng-untouched ng-pristine ng-invalid" type="text" formControlName="estado" id="uf" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="sr-only" for="uf">Estado *</label>
+
+                                    <select class="form-control ng-untouched ng-pristine ng-invalid" type="text" formControlName="estado" id="uf" required>
                                                 <option value="" disabled selected hidden>UF*</option>
                                                 <!---->
 
@@ -148,130 +151,129 @@
                                                 <option value="26: SP">SP</option>
                                                 <option value="27: TO">TO</option>
                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="cidade">Cidade *</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="cidade">Cidade *</label>
 
-                                            <select class="form-control" placeholder="CIDADE*" formControlName="cidade" id="cidade" required>
+                                    <select class="form-control" placeholder="CIDADE*" formControlName="cidade" id="cidade" required>
                                                 <option value="" hidden selected="" disabled="">CIDADE*</option>
                                                 <!---->
                                             </select>
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="bairro">Bairro *</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="bairro">Bairro *</label>
 
-                                            <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="bairro" id="bairro" placeholder="Bairro ou distrito do local" type="text">
+                                    <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="bairro" id="bairro" placeholder="Bairro ou distrito do local" type="text">
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="logradouro">Logradouro *</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="logradouro">Logradouro *</label>
 
-                                            <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="logradouro" id="logradoouro" placeholder="Avenida ou rua do local" type="text">
+                                    <input class="form-control ng-untouched ng-pristine ng-invalid" formControlName="logradouro" id="logradoouro" placeholder="Avenida ou rua do local" type="text">
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="endereco_numero">Complemento</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="endereco_numero">Complemento</label>
 
-                                            <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="complemento" id="endereco_numero" placeholder="COMPLEMENTO" type="tel">
-
-                                        </div>
-                                    </div>
-
+                                    <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="complemento" id="endereco_numero" placeholder="COMPLEMENTO" type="tel">
 
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- professores -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title font-alt">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#panelprofs">PROFESSORES</a>
-                            </h4>
-                        </div>
-                        <div class="panel-collapse collapse in" id="panelprofs">
+            <!-- professores -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title font-alt">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#panelprofs">PROFESSORES</a>
+                    </h4>
+                </div>
+                <div class="panel-collapse collapse in" id="panelprofs">
 
-                            <div class="panel-body">
-                                <div class="form-group">
+                    <div class="panel-body">
+                        <div class="form-group">
 
-                                    <a class="bold addArtistInput" (click)="addProfessor()">
-                                        <span class="fa-stack fa-lg">
+                            <a class="bold" (click)="addProfessor()">
+                                <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle-o fa-stack-2x"></i>
                                             <i class="fa fa-plus fa-stack-1x"></i>
-                                        </span> ADICIONAR NOVO
-                                    </a>
-                                </div>
 
-                                <div class="form-group" formArrayName="professores">
-                                    <!-- list of addresses -->
 
-                                    <div *ngFor="let professor of formEvento.controls.professores.controls; let i=index">
+                                        </span> ADICIONAR NOVO <i class="pi pi-user-plus" style="font-size: 3em"></i>
+                            </a>
+                        </div>
 
-                                        <div [formGroupName]="i" class="form-group">
+                        <div class="form-group" formArrayName="professores">
+                            <!-- list of addresses -->
 
-                                            <label class="sr-only">Nome</label>
-                                            <div class="search-box" class="input-group">
-                                                <div class="input-group-addon"><i class="icon-profile-male"></i></div>
-                                                <input class="form-control" type="text" formControlName="nome" placeholder="NOME*" required style="width: 95%">
-                                                <button class="search-btn" (click)="removeProfessor(i)">
+                            <div *ngFor="let professor of formEvento.controls.professores.controls; let i=index">
+
+                                <div [formGroupName]="i" class="form-group">
+
+                                    <label class="sr-only">Nome</label>
+                                    <div class="search-box" class="input-group">
+                                        <div class="input-group-addon"><i class="icon-profile-male"></i></div>
+                                        <input class="form-control" type="text" formControlName="nome" placeholder="NOME*" required style="width: 95%">
+                                        <button class="search-btn" (click)="removeProfessor(i)">
                                                     <i class="fa fa-close"></i>
                                                 </button>
 
-                                            </div>
-
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <!-- link -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title font-alt">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#panellink">LINK</a>
-                            </h4>
-                        </div>
-
-                        <div class="panel-collapse collapse in" id="panellink">
-                            <div class="panel-body">
-                                <div class="form-group">
-
-                                    <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="link" id="establishment" placeholder="Link da página que vende os ingressos deste evento" type="text">
 
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- banner -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title font-alt">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#panelbanner">BANNER DO EVENTO</a>
-                            </h4>
-                        </div>
-                        <div class="panel-collapse collapse in" id="panelbanner">
-                            <div class="panel-body">
-
-                                <app-form-upload (eventFile)="changeBanner($event)"></app-form-upload>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <button class="btn btn-block btn-round btn-d pull-right" type="submit" tooltip="Salva o evento">Salvar</button>
-
-                    <hr>
-                </form>
+                </div>
             </div>
-        </div>
+
+
+
+            <!-- link -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title font-alt">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#panellink">LINK</a>
+                    </h4>
+                </div>
+
+                <div class="panel-collapse collapse in" id="panellink">
+                    <div class="panel-body">
+                        <div class="form-group">
+
+                            <input class="form-control ng-untouched ng-pristine ng-valid" formControlName="link" id="establishment" placeholder="Link da página que vende os ingressos deste evento" type="text">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- banner -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title font-alt">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#panelbanner">BANNER DO EVENTO</a>
+                    </h4>
+                </div>
+                <div class="panel-collapse collapse in" id="panelbanner">
+                    <div class="panel-body">
+
+                        <app-form-upload (eventFile)="changeBanner($event)"></app-form-upload>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="btn btn-block btn-round btn-d pull-right" type="submit" tooltip="Salva o evento">Salvar</button>
+
+            <hr>
+        </form>
     </div>
-    <HR>
-</section>
+</div>

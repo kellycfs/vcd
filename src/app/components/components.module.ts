@@ -6,16 +6,20 @@ import { VideosComponent } from './videos/videos.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { MenuComponent } from './menu/menu.component';
+import { LoginModule } from '../login/login.module';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule, LoginModule
   ],
   declarations: [BuscaComponent, ProximoseventosComponent, VideosComponent,
-    RodapeComponent, ListUploadComponent, ListUploadComponent, DetailsUploadComponent
+    RodapeComponent, ListUploadComponent, ListUploadComponent, DetailsUploadComponent, MenuComponent
   ],
   exports: [
-    BuscaComponent, ProximoseventosComponent, VideosComponent, RodapeComponent, ListUploadComponent, DetailsUploadComponent
+    LoginModule, BuscaComponent, ProximoseventosComponent, VideosComponent,
+    RodapeComponent, ListUploadComponent, DetailsUploadComponent, MenuComponent
 
   ]
 })
