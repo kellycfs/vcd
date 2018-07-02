@@ -1,4 +1,7 @@
+import { Evento } from './../../model/evento.model';
+import { EventoService } from './../../services/evento.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-proximoseventos',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProximoseventosComponent implements OnInit {
 
-  constructor() { }
+  eventListSub: Subscription;
+  eventList: Evento[];
+  filteredEvents: Evento[];
+  loading: boolean;
+  error: boolean;
+  query: '';
+
+  constructor(private eventoService: EventoService) { }
 
   ngOnInit() {
+    this.buscarEventos();
   }
 
+  buscarEventos() {
+    this.eventoService.getAll().subscribe(
+      res => {
+        this.eventList = res;
+        this.filteredEvents = res;
+        this.loading = false;
+      },
+      err => {
+        console.error(err);
+        this.loading = false;
+        this.error = true;
+      }
+    );
+  }
 }

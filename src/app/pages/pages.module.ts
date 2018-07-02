@@ -20,6 +20,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {CalendarModule} from 'primeng/calendar';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,6 +31,7 @@ import {CalendarModule} from 'primeng/calendar';
     InputMaskModule,
     CalendarModule,
     NgbModule
+
   ],
   declarations: [HomeComponent, CadastrarEventoComponent, EventosComponent, ProfessoresComponent, EscolasComponent,
     CadastroEventoComponent,

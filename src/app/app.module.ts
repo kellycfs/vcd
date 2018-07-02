@@ -1,3 +1,5 @@
+import { DatePipe } from '@angular/common';
+import { UtilService } from './services/util.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ComponentsModule } from './components/components.module';
@@ -21,18 +23,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     LoginModule,
-    AppRoutingModule,
     AngularFireModule.initializeApp(FirebaseConfig),
     PagesModule,
     ComponentsModule,
     BrowserAnimationsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
-  exports: [PagesModule, ComponentsModule, NgbModule],
-  providers: [AngularFireModule, AngularFireDatabase, AngularFireAuth, PagesModule, ComponentsModule],
+  exports: [PagesModule, ComponentsModule, NgbModule, AppRoutingModule],
+  providers: [AngularFireModule, AngularFireDatabase, AngularFireAuth, PagesModule, ComponentsModule, AppRoutingModule, UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

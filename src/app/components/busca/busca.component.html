@@ -1,3 +1,45 @@
-<p>
-  busca works!
+<!-- Search events -->
+<label class="sr-only" for="search">Busca de Eventos</label>
+<div class="search input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text">Search</div>
+  </div>
+  <input
+    id="search"
+    type="text"
+    class="form-control"
+    [(ngModel)]="query"
+    (keyup)="searchEvents()" />
+  <span class="input-group-append">
+    <button
+      class="btn btn-danger"
+      (click)="resetQuery()"
+      [disabled]="!query">&times;</button>
+  </span>
+</div>
+
+<!-- No search results -->
+<p *ngIf="fs.noSearchResults(filteredEvents, query)" class="alert alert-warning">
+  No events found for <em class="text-danger">{{ query }}</em>, sorry!
 </p>
+
+<section class="list-group">
+    <a
+      *ngFor="let event of fs.orderByDate(filteredEvents, 'startDatetime')"
+      [routerLink]="['/evento', event.$key]"
+      class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1" [innerHTML]="event.nome"></h5>
+        <small>{{ utilService.eventDates(event.dataInicio, event.dataInicio) }}</small>
+      </div>
+    </a>
+  </section>
+
+  <p *ngIf="!eventList.length" class="alert alert-info">
+      No upcoming public events available.
+    </p>
+
+    <p *ngIf="error" class="alert alert-danger">
+        <strong>Oops!</strong> There was an error retrieving event data.
+      </p>
+    

@@ -1,4 +1,4 @@
-//import { TIPOEVENTO } from './evento';
+
 
 
 import { Ritmo } from './ritmo';
@@ -16,10 +16,12 @@ export class Evento {
   nome = '';
   descricao = '';
 
-  //tipoEvento: TIPOEVENTO;
+
   local: Local;
   dataInicio: Date;
+  dataFim: Date;
   horaInicio = '';
+  horaFim = '';
 
   link: String = '';
 

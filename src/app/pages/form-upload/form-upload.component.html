@@ -1,9 +1,14 @@
-<div class="container" style="">
+<div class="container">
+    <p class="text-justify">
+        A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
+        <span class="bold">940 X 567</span> pixels.
+    </p>
 
-    <img class="img-responsive img-event" src="assets/images/portfolio/grid-portfolio1.jpg">
+    <img id="imgbanner" class="img-responsive img-event" src="assets/images/portfolio/grid-portfolio1.jpg">
 
     <div *ngIf="currentFileUpload" class="progress">
-        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+            aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
             {{progress.percentage}}%</div>
     </div>
 
@@ -11,10 +16,5 @@
         <i class="fa fa-camera"></i> ALTERAR</label>
     <input id="banner" name="banner" style="display: none" access=".png,.jpg,.jpeg" (change)="selectFile($event)" type="file">
 
-    <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
 
-    <p class="text-justify">
-        A imagem escolhida deve estar em formato JPG ou PNG. A dimensão recomendada é de
-        <span class="bold">940 X 567</span> pixels.
-    </p>
 </div>

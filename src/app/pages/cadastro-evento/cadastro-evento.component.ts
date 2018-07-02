@@ -2,7 +2,7 @@ import { SelectItem } from 'primeng/api';
 import { FileUploadService } from './../../services/file-upload.service';
 import { FileUpload } from './../../model/file-upload';
 import { EventoService } from './../../services/evento.service';
-import { Evento } from './../../model/evento';
+import { Evento } from './../../model/evento.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
@@ -18,7 +18,7 @@ export class CadastroEventoComponent implements OnInit {
 
   ritmos: SelectItem[];
 
-      selectedCars1: string[] = [];
+  selectedCars1: string[] = [];
 
   submitted = false;
 
@@ -48,37 +48,34 @@ export class CadastroEventoComponent implements OnInit {
 
   constructor(private eventoService: EventoService, private uploadService: FileUploadService) {
     this.ritmos = [
-      {label: 'Zouk', value: 'Zouk'},
-      {label: 'Samba', value: 'Samba'},
-      {label: 'Salsa', value: 'Salsa'},
-      {label: 'Kizomba', value: 'Kizomba'},
-      {label: 'Bachata', value: 'Bachata'},
-      {label: 'Forró', value: 'Forró'},
-      {label: 'Bolero', value: 'Bolero'},
-      {label: 'West Coast Swing', value: 'West Coast Swing'}
-  ];
-   }
+      { label: 'Zouk', value: 'Zouk' },
+      { label: 'Samba', value: 'Samba' },
+      { label: 'Salsa', value: 'Salsa' },
+      { label: 'Kizomba', value: 'Kizomba' },
+      { label: 'Bachata', value: 'Bachata' },
+      { label: 'Forró', value: 'Forró' },
+      { label: 'Bolero', value: 'Bolero' },
+      { label: 'West Coast Swing', value: 'West Coast Swing' }
+    ];
+  }
 
-    ngOnInit() {
-
-
-    }
-
+  ngOnInit() {
+  }
 
   changeBanner(file) {
-      this.formEvento.controls.banner = file;
-      console.log('Foi emitido o evento e chegou no pai >>>> ',  this.formEvento.controls.banner );
+    this.formEvento.controls.banner = file;
+    console.log('Foi emitido o evento e chegou no pai >>>> ', this.formEvento.controls.banner);
   }
 
   upload() {
 
-    const file: File =  this.formEvento.controls.banner.value;
+    const file: File = this.formEvento.controls.banner.value;
     const progress: { percentage: number } = { percentage: 0 };
 
-    console.log("uploading image banner");
-    if(file) {
-       const currentFileUpload = new FileUpload(file);
-    this.uploadService.pushFileToStorage(currentFileUpload, progress);
+    console.log('uploading image banner');
+    if (file) {
+      const currentFileUpload = new FileUpload(file);
+      this.uploadService.pushFileToStorage(currentFileUpload, progress);
     }
   }
 
